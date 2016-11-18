@@ -18,7 +18,7 @@ public class ClientListAdapter extends BaseAdapter {
     static class Holder {
         @BindView(R.id.textViewName)
         TextView name;
-        @BindView(R.id.textViewSurnameame)
+        @BindView(R.id.textViewSurname)
         TextView surname;
         @BindView(R.id.textViewPesel)
         TextView pesel;

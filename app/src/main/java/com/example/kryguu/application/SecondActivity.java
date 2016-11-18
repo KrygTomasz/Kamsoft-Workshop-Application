@@ -19,26 +19,14 @@ public class SecondActivity extends AppCompatActivity {
 
         listViewClients = (ListView)findViewById(R.id.listViewClient);
 // Odbieranie danych ????
-        String[] elements = {"Pierwszy klient", "Drugi klient"};
+        //String[] elements = {"Pierwszy klient", "Drugi klient"};
         //ArrayAdapter<String> clientAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, elements);
         List<Client> clients = new ArrayList<Client>();
-        Client c1 = new Client("Jan", "Kowalski", "123456789");
-        clients.add(c1);
-        Client c2 = new Client("Jan", "Kowalski", "123456789");
-        clients.add(c2);
-        Client c3 = new Client("Jan", "Kowalski", "123456789");
-        clients.add(c3);
-        Client c4 = new Client("Jan", "Kowalski", "123456789");
-        clients.add(c4);
-        Client c5 = new Client("Jan", "Kowalski", "123456789");
-        clients.add(c5);
-        Client c6 = new Client("Jan", "Kowalski", "123456789");
-        clients.add(c6);
-        Client c7 = new Client("Jan", "Kowalski", "123456789");
-        clients.add(c7);
-        Client c8 = new Client("Jan", "Kowalski", "123456789");
-        clients.add(c8);
 
+        for (int i = 0; i<20;i++) {
+            Client c1 = new Client("Jan", "Kowalski", "123123123123123123");
+            clients.add(c1);
+        }
 
         ClientListAdapter clientAdapter = new ClientListAdapter(clients);
         listViewClients.setAdapter(clientAdapter);
