@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Application</string>
+
+    <string name="name_in_login">Example login</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login_here">Login:</string>
+    <string name="password_here">Password:</string>
+</resources>
