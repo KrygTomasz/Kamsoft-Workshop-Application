@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -47,7 +46,7 @@ public class ClientListAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         Client client = mClientsList.get(position);
-        return client.getId();
+        return client.getmId();
     }
 
     @Override
