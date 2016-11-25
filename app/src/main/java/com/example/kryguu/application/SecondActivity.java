@@ -2,6 +2,7 @@ package com.example.kryguu.application;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnItemClick;
 
 public class SecondActivity extends AppCompatActivity {
@@ -25,21 +27,24 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        mListViewClients = (ListView)findViewById(R.id.listViewClient);
-    // Odbieranie danych ????
-        //String[] elements = {"Pierwszy klient", "Drugi klient"};
-        //ArrayAdapter<String> clientAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, elements);
-        mClientsList = new ArrayList<Client>();
+        mListViewClients = (ListView) findViewById(R.id.listViewClient);
 
-        for (int i = 0; i<10;i++) {
+        initClientDatabase();
+        initAdapter();
+        ButterKnife.bind(this);
+    }
+
+    private void initClientDatabase() {
+        mClientsList = new ArrayList<Client>();
+        for (int i = 0; i < 10; i++) {
             Client c1 = new Client("Jan", "Kowalski", "505344142", "mail");
             mClientsList.add(c1);
         }
+    }
 
+    private void initAdapter() {
         clientAdapter = new ClientListAdapter(mClientsList);
         mListViewClients.setAdapter(clientAdapter);
-
-        ButterKnife.bind(this);
     }
 
     public void onAddClientClick(View v) {
@@ -66,5 +71,11 @@ public class SecondActivity extends AppCompatActivity {
         intent.putExtra(IntentExtras.CLIENT, client);
 
         startActivity(intent);
+    }
+
+    @OnClick(R.id.floating_action_button_add_client)
+    public void onFloatingClick() {
+        Intent intent = new Intent(SecondActivity.this, ClientFormActivity.class);
+        startActivityForResult(intent, REQUEST_CODE);
     }
 }
