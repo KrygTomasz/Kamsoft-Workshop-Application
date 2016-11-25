@@ -31,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:hint="Name"
             android:layout_weight="2"
-            android:id="@+id/editText" />
+            android:id="@+id/editTextName" />
 
     </LinearLayout>
 
@@ -47,15 +47,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/textView5" />
+            android:id="@+id/textViewSurname" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Surname"
+            android:hint="Surname"
             android:layout_weight="2"
-            android:id="@+id/editText2" />
+            android:id="@+id/editTextSurname" />
 
     </LinearLayout>
 
@@ -65,19 +65,41 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="PESEL:"
+            android:text="Phone:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/textView6" />
+            android:id="@+id/textViewPhone" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:hint="Phone"
             android:layout_weight="2"
-            android:id="@+id/editText3" />
+            android:id="@+id/editTextPhone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Email:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/textViewEmail" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Email"
+            android:layout_weight="2"
+            android:id="@+id/editTextEmail" />
 
     </LinearLayout>
 
@@ -89,8 +111,7 @@
             android:text="Add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:onClick="addButtonClick"/>
+            android:id="@+id/buttonAddClient" />
 
     </LinearLayout>
 

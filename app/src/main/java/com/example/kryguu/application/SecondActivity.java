@@ -32,7 +32,7 @@ public class SecondActivity extends AppCompatActivity {
         mClientsList = new ArrayList<Client>();
 
         for (int i = 0; i<10;i++) {
-            Client c1 = new Client("Jan", "Kowalski", "123123123123123123");
+            Client c1 = new Client("Jan", "Kowalski", "505344142", "mail");
             mClientsList.add(c1);
         }
 
@@ -51,10 +51,12 @@ public class SecondActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (REQUEST_CODE == requestCode && Activity.RESULT_OK == resultCode && data != null) {
-            //Client client = data.getExtras().getParcelable(IntentExtras.CLIENT);
-            Client client = new Client("Adam", "Nowak", "333333333");
+            Client client = data.getExtras().getParcelable(IntentExtras.CLIENT);
+            //Client client = new Client("Adam", "Nowak", "333333333");
             mClientsList.add(client);
             clientAdapter.notifyDataSetChanged();
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 

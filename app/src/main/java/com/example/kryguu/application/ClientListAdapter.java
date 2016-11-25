@@ -19,8 +19,10 @@ public class ClientListAdapter extends BaseAdapter {
         TextView name;
         @BindView(R.id.textViewSurname)
         TextView surname;
-        @BindView(R.id.textViewPesel)
-        TextView pesel;
+        @BindView(R.id.textViewPhone)
+        TextView phone;
+        @BindView(R.id.textViewEmail)
+        TextView email;
 
         public Holder(View view){
             ButterKnife.bind(this,view);
@@ -62,9 +64,10 @@ public class ClientListAdapter extends BaseAdapter {
         }
 
         Client client = mClientsList.get(position);
-        holder.name.setText(client.name);
-        holder.surname.setText(client.surname);
-        holder.pesel.setText(client.PESEL);
+        holder.name.setText(client.getmName());
+        holder.surname.setText(client.getmSurname());
+        holder.phone.setText(client.getmPhone());
+        holder.email.setText(client.getmEmail());
         //if (convertView == null) {
         //    convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_view_layout, parent, false);
 
