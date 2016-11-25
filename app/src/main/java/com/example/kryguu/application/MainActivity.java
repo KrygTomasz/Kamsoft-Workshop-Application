@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(menuIntent);
 
                 finish();
-
             }
         };
     }

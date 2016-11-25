@@ -16,6 +16,7 @@ public class ClientDetailsPagerAdapter extends FragmentStatePagerAdapter {
 
     private final int CLIENT_DETAILS_PAGE = 0;
     private final int CONTACTS_DETAILS_PAGE = 1;
+
     public ClientDetailsPagerAdapter(FragmentManager fm, Context context, Client client) {
         super(fm);
         mClient = client;

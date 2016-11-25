@@ -29,7 +29,7 @@ public class ClientListAdapter extends BaseAdapter {
         }
     }
 
-    List<Client> mClientsList;// = new ArrayList<>();
+    List<Client> mClientsList;
 
     public ClientListAdapter(List<Client> clients) {
         mClientsList = clients;
@@ -68,14 +68,6 @@ public class ClientListAdapter extends BaseAdapter {
         holder.surname.setText(client.getmSurname());
         holder.phone.setText(client.getmPhone());
         holder.email.setText(client.getmEmail());
-        //if (convertView == null) {
-        //    convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_view_layout, parent, false);
-
-        //    Client client = mClientsList.get(position);
-        //    ((TextView)convertView.findViewById(R.id.textViewName)).setText(client.name);
-        //    ((TextView)convertView.findViewById(R.id.textViewSurnameame)).setText(client.surname);
-        //    ((TextView)convertView.findViewById(R.id.textViewPesel)).setText(client.PESEL);
-        //}
 
         return convertView;
     }

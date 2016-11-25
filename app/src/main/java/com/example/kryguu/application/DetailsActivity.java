@@ -17,18 +17,10 @@ public class DetailsActivity extends AppCompatActivity {
 
     private Client mClient;
 
-
     @BindView(R.id.view_pager_client_details)
     ViewPager mViewPagerClientAdapter;
     @BindView(R.id.tab_layout_client_details)
     TabLayout mTabLayoutClientDetails;
-
-//    @BindView(R.id.button_call)
-//    Button mButtonCall;
-//    @BindView(R.id.button_locate)
-//    Button mButtonLocate;
-//    @BindView(R.id.button_mail)
-//    Button mButtonMail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +28,9 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
         mClient = getIntent().getExtras().getParcelable(IntentExtras.CLIENT);
-        //mClient = new Client("Seba","Seba","666");
-        ClientDetailsPagerAdapter clientDetailsPagerAdapter = new ClientDetailsPagerAdapter(getSupportFragmentManager(),this,mClient);
+        ClientDetailsPagerAdapter clientDetailsPagerAdapter = new ClientDetailsPagerAdapter(getSupportFragmentManager(), this, mClient);
         mViewPagerClientAdapter.setAdapter(clientDetailsPagerAdapter);
         mTabLayoutClientDetails.setupWithViewPager(mViewPagerClientAdapter);
 
     }
-
-//    @OnClick(R.id.button_call)
-//    public void onButtonCallClick() {
-//        String url = String.format("tel:%s", "123456789");
-//        Intent callIntent = new Intent("android.intent.action.CALL", Uri.parse(url));
-//        startActivity(callIntent);
-//    }
 }

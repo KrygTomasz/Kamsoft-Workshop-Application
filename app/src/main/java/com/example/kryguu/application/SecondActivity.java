@@ -49,10 +49,8 @@ public class SecondActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         if (REQUEST_CODE == requestCode && Activity.RESULT_OK == resultCode && data != null) {
             Client client = data.getExtras().getParcelable(IntentExtras.CLIENT);
-            //Client client = new Client("Adam", "Nowak", "333333333");
             mClientsList.add(client);
             clientAdapter.notifyDataSetChanged();
         } else {
