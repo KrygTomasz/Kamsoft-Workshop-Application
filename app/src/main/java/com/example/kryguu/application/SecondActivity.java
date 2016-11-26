@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -22,6 +24,8 @@ public class SecondActivity extends AppCompatActivity {
     private ClientListAdapter clientAdapter;
     private static final int REQUEST_CODE = 333;
 
+    ClientDao clientDao = new ClientDao();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +39,12 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     private void initClientDatabase() {
-        mClientsList = new ArrayList<Client>();
-        for (int i = 0; i < 10; i++) {
-            Client c1 = new Client("Jan", "Kowalski", "505344142", "mail");
-            mClientsList.add(c1);
-        }
+        mClientsList = clientDao.getClientsList();
+//        mClientsList = new ArrayList<Client>();
+//        for (int i = 0; i < 10; i++) {
+//            Client c1 = new Client("Jan", "Kowalski", "505344142", "mail");
+//            mClientsList.add(c1);
+//        }
     }
 
     private void initAdapter() {
@@ -58,6 +63,7 @@ public class SecondActivity extends AppCompatActivity {
             Client client = data.getExtras().getParcelable(IntentExtras.CLIENT);
             mClientsList.add(client);
             clientAdapter.notifyDataSetChanged();
+            //clientDao.insertObject(client);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

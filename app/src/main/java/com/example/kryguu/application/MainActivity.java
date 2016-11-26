@@ -1,6 +1,8 @@
 package com.example.kryguu.application;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,12 +33,21 @@ public class MainActivity extends AppCompatActivity {
                 String userName = editTextUsername.getText().toString();
                 String password = editTextPassword.getText().toString();
 
-                Intent menuIntent = new Intent(MainActivity.this, SecondActivity.class);
-                menuIntent.putExtra(IntentExtras.USERNAME, userName);
-                menuIntent.putExtra(IntentExtras.PASSWORD, password);
-                startActivity(menuIntent);
+                if(userName.isEmpty() || password.isEmpty()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("At least one field is empty.");
+                    builder.setPositiveButton("Back", null);
+                    builder.show();
+                }
+                else {
+                    Intent menuIntent = new Intent(MainActivity.this, SecondActivity.class);
+                    menuIntent.putExtra(IntentExtras.USERNAME, userName);
+                    menuIntent.putExtra(IntentExtras.PASSWORD, password);
+                    startActivity(menuIntent);
 
-                finish();
+                    finish();
+                }
             }
         };
     }

@@ -73,9 +73,14 @@ public class ClientDetailsFragment extends Fragment {
 
     @OnClick(R.id.button_call)
     public void onClickCall() {
-        String url = String.format("tel:%s", textViewPhone.getText().toString());
-        Intent callIntent = new Intent("android.intent.action.CALL", Uri.parse(url));
+        String uri = String.format("tel:%s", textViewPhone.getText().toString());
+        Intent callIntent = new Intent("android.intent.action.CALL", Uri.parse(uri));
         startActivity(callIntent);
+    }
+
+    @OnClick(R.id.button_locate)
+    public void onClickLocate() {
+
     }
 
 
