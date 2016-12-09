@@ -7,6 +7,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 
 import butterknife.BindView;
@@ -32,5 +34,28 @@ public class DetailsActivity extends AppCompatActivity {
         mViewPagerClientAdapter.setAdapter(clientDetailsPagerAdapter);
         mTabLayoutClientDetails.setupWithViewPager(mViewPagerClientAdapter);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.fragment_client_details, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_delete:
+                doDeleteAction();
+                break;
+        }
+
+        return true;
+    }
+
+    private void doDeleteAction() {
+        ClientDao cd = new ClientDao();
+        cd.deleteObject(mClient);
+        finish();
     }
 }
