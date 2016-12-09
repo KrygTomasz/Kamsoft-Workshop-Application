@@ -14,11 +14,11 @@ import java.util.List;
 public class ClientDao extends BaseDao<Client> {
 
     private static final String TABLE_NAME = "clients";
-    private static final String COLUMN_ID = "id";
-    private static final String COLUMN_NAME = "name";
-    private static final String COLUMN_SURNAME = "surname";
-    private static final String COLUMN_PHONE = "phone";
-    private static final String COLUMN_EMAIL = "email";
+    private static final int COLUMN_ID = 0;
+    private static final int COLUMN_NAME = 1;
+    private static final int COLUMN_SURNAME = 2;
+    private static final int COLUMN_PHONE = 3;
+    private static final int COLUMN_EMAIL = 4;
 
     public ClientDao() {
         super(TABLE_NAME);
@@ -27,21 +27,21 @@ public class ClientDao extends BaseDao<Client> {
     @Override
     public Client getObjectFromCursor(Cursor cursor) {
         Client client = new Client();
-        client.setId(getLong(cursor, COLUMN_ID));
-        client.setmName(getString(cursor, COLUMN_NAME));
-        client.setmName(getString(cursor, COLUMN_SURNAME));
-        client.setmName(getString(cursor, COLUMN_PHONE));
-        client.setmName(getString(cursor, COLUMN_EMAIL));
+        client.setId(cursor.getLong(COLUMN_ID));
+        client.setmName(cursor.getString(COLUMN_NAME));
+        client.setmSurname(cursor.getString(COLUMN_SURNAME));
+        client.setmPhone(cursor.getString(COLUMN_PHONE));
+        client.setmEmail(cursor.getString(COLUMN_EMAIL));
         return client;
     }
 
     @Override
     public ContentValues getObjectContentValues(Client object) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_NAME, object.getmName());
-        contentValues.put(COLUMN_SURNAME, object.getmSurname());
-        contentValues.put(COLUMN_PHONE, object.getmPhone());
-        contentValues.put(COLUMN_EMAIL, object.getmEmail());
+        contentValues.put("name", object.getmName());
+        contentValues.put("surname", object.getmSurname());
+        contentValues.put("phone", object.getmPhone());
+        contentValues.put("email", object.getmEmail());
         return contentValues;
     }
 

@@ -32,8 +32,28 @@ public class ClientFormActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.buttonAddClient)
-    public void addClient() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_add_client, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_save:
+                doSaveAction();
+                break;
+        }
+
+        return true;
+    }
+
+    private void doSaveAction() {
+        addClient();
+    }
+
+    private void addClient() {
         if(name.getText().toString().isEmpty() || surname.getText().toString().isEmpty() || phone.getText().toString().isEmpty() || email.getText().toString().isEmpty()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(ClientFormActivity.this);
             builder.setTitle("Error");
@@ -54,27 +74,6 @@ public class ClientFormActivity extends AppCompatActivity {
             setResult(Activity.RESULT_OK, intent);
             finish();
         }
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_add_client, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_save:
-                doSaveAction();
-                break;
-        }
-
-        return true;
-    }
-
-    private void doSaveAction() {
     }
 
 }

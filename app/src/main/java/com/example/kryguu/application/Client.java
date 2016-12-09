@@ -69,6 +69,10 @@ public class Client implements Parcelable, IDatabaseObject {
         return mSurname;
     }
 
+    public void setmSurname(String surname) {
+        mSurname = surname;
+    }
+
     public String getmName() {
         return mName;
     }
